@@ -11,5 +11,8 @@ func main() {
 	// slice
 	cards := newDeck()
 
-	cards.print()
+	hand, remainingDeck := cards.deal(5)
+
+	hand.print()
+	remainingDeck.print()
 }

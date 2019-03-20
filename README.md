@@ -35,3 +35,5 @@
   // d - working variable (initialized variable on which we're working on) (keyword 'this' in Javascript)
   // print() - function name
   ```
+
+- multiple return values

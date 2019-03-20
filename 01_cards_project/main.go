@@ -9,11 +9,7 @@ func main() {
 	// Array - fixed length list of things
 	// Slice - array that cang grow and shrink
 	// slice
-	cards := deck{"Ace", newCard()}
+	cards := newDeck()
 
 	cards.print()
-}
-
-func newCard() string {
-	return "Test"
 }

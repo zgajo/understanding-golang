@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func main() {
 	// Two ways to define variables,
 	// var card string = "Ace of Spades"
@@ -11,12 +9,9 @@ func main() {
 	// Array - fixed length list of things
 	// Slice - array that cang grow and shrink
 	// slice
-	cards := []string{"Ace", newCard()}
+	cards := deck{"Ace", newCard()}
 
-	// range = iteare over every elemtent in cards
-	for i, card := range cards {
-		fmt.Println(i, card)
-	}
+	cards.print()
 }
 
 func newCard() string {

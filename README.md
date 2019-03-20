@@ -19,5 +19,19 @@
 - for loop
   - array vs slice:
     - Array: fixed length list of things
-    - Slice: array that cang grow and shrink - slice
-    - cards := []string{"Ace", newCard()}
+    - Slice: array that cang grow and shrink
+    - slice
+      - cards := []string{"Ace", newCard()}
+- declaring custom types
+  ```
+  type deck []string
+  ```
+- add method to custom type (receiver functions)
+
+  ```
+  func (d deck) print() {}
+
+  // (d deck) - type on which this method will be attached to
+  // d - working variable (initialized variable on which we're working on) (keyword 'this' in Javascript)
+  // print() - function name
+  ```

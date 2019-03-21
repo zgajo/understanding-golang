@@ -40,3 +40,4 @@
 - type conversion
 - byte slice
 - write to file
+- read from file, handle error, split string into string array

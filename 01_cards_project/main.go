@@ -9,14 +9,17 @@ func main() {
 	// Array - fixed length list of things
 	// Slice - array that cang grow and shrink
 	// slice
-	cards := newDeck()
+	// cards := newDeck()
 
-	hand, remainingDeck := cards.deal(5)
+	// hand, remainingDeck := cards.deal(5)
 
-	hand.print()
-	remainingDeck.print()
+	// hand.print()
+	// remainingDeck.print()
 
 	// fmt.Println(hand.toString())
-	hand.savetoFile("./01_cards_project/cards.txt")
+	// hand.savetoFile("./01_cards_project/cards.txt")
+
+	cards2 := newDeckFromFile("./01_cards_project/cards.txt")
+	cards2.print()
 	// fmt.Println([]byte("Hello"))
 }

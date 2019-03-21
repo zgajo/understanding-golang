@@ -3,8 +3,12 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"log"
+	"os"
 	"strings"
 )
+
+var commaSeparator string = ", "
 
 type deck []string
 
@@ -36,10 +40,26 @@ func (d deck) deal(handSize int) (deck, deck) {
 }
 
 func (d deck) toString() string {
-	return strings.Join([]string(d), ", ")
+	return strings.Join([]string(d), commaSeparator)
 }
 
 func (d deck) savetoFile(fileName string) error {
 	var byteSlice = []byte(d.toString())
 	return ioutil.WriteFile(fileName, byteSlice, 0666)
+}
+
+func newDeckFromFile(fileName string) deck {
+	byteSlice, err := ioutil.ReadFile(fileName)
+
+	if err != nil {
+		log.Fatal(err)
+		os.Exit(1)
+	}
+
+	cardsString := string(byteSlice)
+	cardsSlice := strings.Split(cardsString, commaSeparator)
+	deck := deck(cardsSlice)
+
+	return deck
+
 }

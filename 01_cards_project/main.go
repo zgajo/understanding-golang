@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func main() {
 	// Two ways to define variables,
 	// var card string = "Ace of Spades"
@@ -15,4 +17,7 @@ func main() {
 
 	hand.print()
 	remainingDeck.print()
+
+	fmt.Println(hand.toString())
+	// fmt.Println([]byte("Hello"))
 }

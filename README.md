@@ -37,3 +37,5 @@
   ```
 
 - multiple return values
+- type conversion
+- byte slice

@@ -43,3 +43,5 @@
 - read from file, handle error, split string into string array
 - change element places in array
 - generate truly random number
+- testing go package
+- delete file from os

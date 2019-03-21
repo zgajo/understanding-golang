@@ -42,3 +42,4 @@
 - write to file
 - read from file, handle error, split string into string array
 - change element places in array
+- generate truly random number

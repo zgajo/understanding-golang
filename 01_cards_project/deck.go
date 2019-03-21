@@ -7,6 +7,7 @@ import (
 	"math/rand"
 	"os"
 	"strings"
+	"time"
 )
 
 var commaSeparator string = ", "
@@ -66,9 +67,12 @@ func newDeckFromFile(fileName string) deck {
 }
 
 func (d deck) shuffle() deck {
+	source := rand.NewSource(time.Now().UnixNano())
+	r := rand.New(source)
+
 	for i := range d {
 
-		randPosition := rand.Intn(len(d) - 1)
+		randPosition := r.Intn(len(d) - 1)
 
 		d[i], d[randPosition] = d[randPosition], d[i]
 

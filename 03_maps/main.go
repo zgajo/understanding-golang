@@ -12,5 +12,7 @@ func main() {
 
 	colors["green"] = "#32sdds"
 
+	delete(colors, "white")
+
 	fmt.Println(colors)
 }

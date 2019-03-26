@@ -14,5 +14,11 @@ func main() {
 
 	delete(colors, "white")
 
-	fmt.Println(colors)
+	printMap(colors)
+}
+
+func printMap(c map[string]string) {
+	for key, value := range c {
+		fmt.Println(key, value)
+	}
 }

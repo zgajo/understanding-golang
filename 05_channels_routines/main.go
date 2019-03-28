@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"time"
 )
 
 func main() {
@@ -17,22 +18,31 @@ func main() {
 		go checkLink(website, c) // creating go routines, not using code syncronosly
 	}
 
-	for i := 0; i < len(links); i++ {
-		fmt.Println(<-c) // blocking line of code, waits for the message
-	}
+	// for {
+	// 	// fmt.Println(<-c) // blocking line of code, waits for the message
+	// 	go checkLink(<-c, c)
+	// }
 
+	for l := range c {
+		fmt.Println("-------------------")
+		go func(l string) {
+			time.Sleep(time.Second * 5)
+			checkLink(l, c)
+		}(l)
+	}
 }
 
 func checkLink(link string, c chan string) {
+
 	_, err := http.Get(link)
 
 	if err != nil {
 		fmt.Println(link, "might be down!")
-		c <- "Might be down I think"
+		c <- link
 		os.Exit(1)
 	}
 
-	c <- "Received" // send message to channel
 	fmt.Println(link, "is up!")
+	c <- link // send message to channel
 
 }
